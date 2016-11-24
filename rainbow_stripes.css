@@ -1,0 +1,83 @@
+:root {
+  /* VARIABLES, adaptable  */
+  --p-size: 2;  /* viewpoint size using vmin (smallest side) */
+  --move-time: 3;  /* duration of move animation in seconds */
+  --col-time-offset: 1.5;  /* duration of colour animation in seconds */
+  /* FireFox cannot calc seconds */
+  --moz-move-time: 3s;
+  --moz-col-time: 4.5s;
+  --particle: 1;
+
+  /* CALCULATIONS */
+  --calc-p-size: calc(var(--p-size) * 1vmin);
+  --calc-move-time: calc(1s * var(--move-time));
+  /* Safari cannot do calc in calc
+     -> needs offset rather than calculated col time */
+  --calc-col-time: calc(1s * var(--move-time) * var(--col-time-offset));
+}
+
+body {
+  font-family: Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.maincontainer {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.particle {
+  position: absolute;
+
+  background-color: red;
+  height: var(--calc-p-size);
+  width: var(--calc-p-size);
+
+  /* for text within particle */
+  font-size: var(--calc-p-size);
+  line-height: var(--calc-p-size);
+  text-align: center;
+  font-weight: bold;
+  color: white;
+
+  animation-name: rainbow, moveParticle;
+  animation-duration: var(--calc-col-time), var(--calc-move-time);
+  -moz-animation-duration: var(--moz-col-time), var(--moz-move-time);
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: linear;
+}
+
+@keyframes moveParticle {
+  to {
+    left: calc(100% + 30px);
+    left: -moz-calc(100% + 10px);
+    left: -webkit-calc(100% + 30px);
+  }
+}
+
+@keyframes rainbow {
+  from, to {
+    background-color: red;
+  }
+  16.6% {
+    background-color: orange;
+  }
+  33.2% {
+    background-color: yellow;
+  }
+  49.8% {
+    background-color: green;
+  }
+  66.4% {
+    background-color: blue;
+  }
+  83% {
+    background-color: purple;
+  }
+}
