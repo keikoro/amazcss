@@ -45,7 +45,7 @@ body {
   font-weight: bold;
   color: white;
 
-  animation-name: rainbow, moveParticle;
+  animation-name: rainbow, moveParticle, spin;
   animation-duration: var(--calc-col-time), var(--calc-move-time);
   -moz-animation-duration: var(--moz-col-time), var(--moz-move-time);
   animation-iteration-count: infinite;
@@ -79,5 +79,23 @@ body {
   }
   83% {
     background-color: purple;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
