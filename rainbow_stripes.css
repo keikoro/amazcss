@@ -31,6 +31,52 @@ body {
   padding: 0;
 }
 
+.addparticles_btn_holder {
+  position: absolute;
+  top: .5em;
+  right: .5em;
+  height: 20vh;
+
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+
+  color: rgba(70, 60, 140, .02);
+  font-size: 5vh;
+  border: .8vmin solid rgba(70, 60, 140, .02);
+  border-radius: .6em .2em .6em .2em;
+  padding: 2vmin;
+
+  transition-property: border, color;
+  transition-duration: 1.3s, 1s;
+}
+
+.addparticles_btn_holder:hover {
+  color: rgba(70, 60, 140, .4);
+  border-color: rgba(70, 60, 140, .4);
+
+  transition-property: border, color;
+  transition-duration: .8s, 1s;
+}
+
+.addparticles_btn {
+  text-align: center;
+  padding: 1vmin;
+  border: .48vmin solid rgba(70, 60, 140, .02);
+
+  border-radius: .4em;
+
+  transition: border;
+  transition-duration: 1s;
+}
+
+.addparticles_btn:hover {
+  border-color: rgba(70, 60, 140, .4);
+
+  transition: border;
+  transition-duration: .5s;
+}
+
 .particle {
   position: absolute;
 
