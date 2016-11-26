@@ -1,10 +1,10 @@
 :root {
   /* VARIABLES, adaptable  */
   --p-size: 2;  /* viewpoint size using vmin (smallest side) */
-  --move-time: 3;  /* duration of move animation in seconds */
+  --move-time: 10;  /* duration of move animation in seconds */
   --col-time-offset: 1.5;  /* duration of colour animation in seconds */
   /* FireFox cannot calc seconds */
-  --moz-move-time: 3s;
+  --moz-move-time: 10s;
   --moz-col-time: 4.5s;
   --particle: 1;
 
@@ -14,6 +14,10 @@
   /* Safari cannot do calc in calc
      -> needs offset rather than calculated col time */
   --calc-col-time: calc(1s * var(--move-time) * var(--col-time-offset));
+}
+
+*:focus {
+  outline: dotted 1px rgba(70, 60, 140, .4);
 }
 
 body {
@@ -35,20 +39,31 @@ body {
   position: absolute;
   top: .5em;
   right: .5em;
-  height: 20vh;
 
   display: flex;
   justify-content: space-around;
   flex-direction: column;
 
-  color: rgba(70, 60, 140, .02);
-  font-size: 5vh;
-  border: .8vmin solid rgba(70, 60, 140, .02);
+  border: .40vmin solid rgba(70, 60, 140, .04);
   border-radius: .6em .2em .6em .2em;
-  padding: 2vmin;
+  padding: .4em;
 
   transition-property: border, color;
   transition-duration: 1.3s, 1s;
+}
+
+.addparticles_btn {
+  font-size: 1em;
+  color: rgba(70, 60, 140, .04);
+  background: rgba(255, 255, 255, 1);
+  border: .25vmin solid rgba(70, 60, 140, .04);
+  border-radius: .2em;
+
+  text-align: center;
+  margin: .4vmin;
+
+  transition: border;
+  transition-duration: 1s;
 }
 
 .addparticles_btn_holder:hover {
@@ -59,18 +74,8 @@ body {
   transition-duration: .8s, 1s;
 }
 
-.addparticles_btn {
-  text-align: center;
-  padding: 1vmin;
-  border: .48vmin solid rgba(70, 60, 140, .02);
-
-  border-radius: .4em;
-
-  transition: border;
-  transition-duration: 1s;
-}
-
 .addparticles_btn:hover {
+  color: rgba(70, 60, 140, .4);
   border-color: rgba(70, 60, 140, .4);
 
   transition: border;
@@ -101,30 +106,30 @@ body {
 
 @keyframes moveParticle {
   to {
-    left: calc(100% + 30px);
+    left: calc(100% + 10px);
     left: -moz-calc(100% + 10px);
-    left: -webkit-calc(100% + 30px);
+    left: -webkit-calc(100% + 10px);
   }
 }
 
 @keyframes rainbow {
   from, to {
-    background-color: red;
+    background-color: purple;
   }
   16.6% {
-    background-color: orange;
+    background-color: red;
   }
   33.2% {
-    background-color: yellow;
+    background-color: orange;
   }
   49.8% {
-    background-color: green;
+    background-color: yellow;
   }
   66.4% {
-    background-color: blue;
+    background-color: green;
   }
   83% {
-    background-color: purple;
+    background-color: blue;
   }
 }
 
