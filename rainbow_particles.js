@@ -15,6 +15,13 @@ document.addEventListener('DOMContentLoaded', function() {
     less_btn.addEventListener('click', function() {
         removeParticles(10);
     });
+
+    var allButtons = document.getElementsByTagName('button');
+    for (var i = 0; i < allButtons.length; i++) {
+        allButtons[i].addEventListener('mousedown', function () {
+            pressButton(this);
+        }, false);
+    }
 });
 
 // execute on browser resize
@@ -22,8 +29,31 @@ window.addEventListener('resize', function() {
     // var windowSize = getWindowSize();
     // var height = windowSize[0], width = windowSize[1];
     // console.log("h: " + height + "px\nw: " + width + "px");
-
 });
+
+// listen for key presses
+window.addEventListener('keypress', function(event) {
+    var btnId;
+    var keyCode = event.which;
+    // PLUS key: +
+    if (keyCode == 43) {
+        addParticles(7);
+        btnId = 'moar';
+    }
+    // MINUS key: -
+    if (keyCode == 45) {
+        removeParticles(10);
+        btnId = 'less';
+    }
+
+    var allButtons = document.getElementsByTagName('button');
+    // visual button press
+    for (var i = 0; i < allButtons.length; i++) {
+        if (allButtons[i].id == btnId) {
+            pressButton(allButtons[i]);
+        }
+    }
+}, false);
 
 // get current browser window size
 // return its height + width
@@ -143,4 +173,21 @@ function removeParticles(removeCount) {
             console.log('remaining particles: ' + countAgain.length);
         }, 5000);
     })(removeCount);
+}
+
+// show button presses
+function pressButton(btn) {
+
+    var intervalCounter = 0;
+    var pressVar = setInterval(pressNow, 12);
+
+    // activate different CSS for duration of button presses
+    function pressNow() {
+        btn.className = 'addparticles_btn_active';
+        intervalCounter++;
+        if (intervalCounter == 12) {
+            clearInterval(pressVar);
+            btn.className = 'addparticles_btn';
+        }
+    }
 }
