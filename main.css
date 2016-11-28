@@ -1,0 +1,48 @@
+body {
+  font-family: Verdana, Helvetica, "sans-serif";
+  font-size: 0.8em;
+
+  padding: 1em;
+  margin-left: 1em;
+  color: #262626;
+}
+
+a {
+  text-decoration: none;
+  color: #49bddf;
+}
+
+a:hover {
+  color: #262626;
+  border-bottom: dotted #49bddf 1px;
+}
+
+h1 {
+  font-size: 1.6em;
+  font-weight: normal;
+  margin-top: 1em;
+  margin-bottom: .8em;
+}
+
+.content {
+  margin: 1vh 0 1vh 0;
+}
+
+.header {
+  font-size: 1.6em;
+  margin-bottom: .8em;
+}
+
+.maincontainer {
+  width: 90%;
+  margin: 0;
+  padding: 0;
+  min-height: 80vh;
+}
+
+.footer {
+  position: relative;
+  margin-top: 1em;
+  bottom: 1em;
+  padding-top: 1.2em;
+}
