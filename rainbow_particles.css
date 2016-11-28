@@ -75,9 +75,8 @@ body {
 
 .addparticles_btn_active {
   box-shadow: inset 1px 1px rgba(70, 60, 140, .4),
-              inset 4px 4px rgba(70, 60, 140, .04),
-              2px 2px rgba(70, 60, 140, .04);
-
+  inset 4px 4px rgba(70, 60, 140, .04),
+  2px 2px rgba(70, 60, 140, .04);
 }
 
 .addparticles_btn:hover {
