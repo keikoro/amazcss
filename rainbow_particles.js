@@ -76,7 +76,6 @@ function getVminInPx() {
 function addParticles(addCount) {
     var windowSize = getWindowSize();
     var height = windowSize[0];
-    var width = windowSize[0];
     var vu = getVminInPx();
     var left = vu*2.5;
 
@@ -102,10 +101,9 @@ function addParticles(addCount) {
         div.style.animationDelay = combineTimeValues(0, moveDelay, moveDelay, 0);
 
         main.appendChild(div);
-
         // change opacity to make fade in effect set in
-        window.getComputedStyle(div).opacity;
-        div.style.opacity = 1;
+        // window.getComputedStyle(div).opacity;
+        // div.style.opacity = 1;
     }
 
     var countP = document.querySelectorAll('.particle:not([data-remove])').length;
@@ -113,11 +111,10 @@ function addParticles(addCount) {
 }
 
 function removeParticles(removeCount) {
-    // convert particle nodes to array
-    var particlesNL = document.querySelectorAll('.particle:not([data-remove])');
     var allParticles = [], toRemove = [];
     var randomPick, elem;
-
+    // save particle node list as array
+    var particlesNL = document.querySelectorAll('.particle:not(.fadeOut)');
     allParticles.push.apply(allParticles, particlesNL);
 
     // pick random particles to delete from all existing ones
@@ -130,19 +127,20 @@ function removeParticles(removeCount) {
             elem.className += ' fadeOut';
         }
     }
+    particlesNL = [];
 
     // delete elements after they have faded
     (function(rc) {
         setTimeout(function () {
-            toRemove.push.apply(toRemove, document.querySelectorAll('[data-remove]'));
+            toRemove.push.apply(toRemove, document.querySelectorAll('.fadeOut[data-remove]'));
             var elem;
             // check if there are still elements to delete!
-            for (var z = 0; (z < rc && z > 0); z++) {
+            for (var z = 0; (z < rc && document.querySelectorAll('.fadeOut[data-remove]').length > 0); z++) {
                 elem = toRemove[z];
                 elem.parentNode.removeChild(elem);
             }
-            var countagain = document.querySelectorAll('.particle:not([data-remove])');
-            console.log('remaining particles: ' + countagain.length);
-        }, 4000);
+            var countAgain = document.querySelectorAll('.particle:not([data-remove])');
+            console.log('remaining particles: ' + countAgain.length);
+        }, 5000);
     })(removeCount);
 }
