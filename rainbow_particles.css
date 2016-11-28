@@ -43,7 +43,7 @@ body {
   transition-duration: 1.3s, 1s;
 }
 
-.addparticles_btn {
+.addparticles_btn, .addparticles_btn_active {
   text-align: center;
   font-size: 1em;
   color: rgba(70, 60, 140, .04);
@@ -54,11 +54,13 @@ body {
 
   margin: .4vm;
   margin: .4vmin;
+  width: 1.85em;
 
   -webkit-transition: border;
   transition: border;
   -webkit-transition-duration: 1s;
   transition-duration: 1s;
+  box-shadow: 2px 2px rgba(70, 60, 140, .04);
 }
 
 .addparticles_btn_holder:hover {
@@ -69,6 +71,13 @@ body {
   transition-property: border, color;
   -webkit-transition-duration: .8s, 1s;
   transition-duration: .8s, 1s;
+}
+
+.addparticles_btn_active {
+  box-shadow: inset 1px 1px rgba(70, 60, 140, .4),
+              inset 4px 4px rgba(70, 60, 140, .04),
+              2px 2px rgba(70, 60, 140, .04);
+
 }
 
 .addparticles_btn:hover {
