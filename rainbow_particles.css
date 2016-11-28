@@ -44,6 +44,7 @@ body {
 }
 
 .addparticles_btn {
+  text-align: center;
   font-size: 1em;
   color: rgba(70, 60, 140, .04);
   background: rgba(255, 255, 255, 1);
@@ -51,7 +52,6 @@ body {
   border: .25vmin solid rgba(70, 60, 140, .04);
   border-radius: .2em;
 
-  text-align: center;
   margin: .4vm;
   margin: .4vmin;
 
@@ -94,9 +94,8 @@ body {
   background-color: purple;
 
   -webkit-transition: opacity 5s;
-
   transition: opacity 5s;
-  opacity: 0;
+  opacity: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 
   -webkit-animation-name: fadeIn, rainbow, moveParticle, spin;
@@ -121,10 +120,9 @@ body {
   perspective: 1000;
 }
 
-
 .fadeOut {
-  -webkit-transition: opacity 3s ease-out;
-  transition: opacity 3s ease-out;
+  -webkit-transition: all 5s ease-out;
+  transition: all 5s ease-out;
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 }
