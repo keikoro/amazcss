@@ -4,17 +4,17 @@ body {
 
   padding: 1em;
   margin-left: 1em;
-  color: #262626;
+  color: rgb(35, 35, 35);
 }
 
 a {
   text-decoration: none;
-  color: #49bddf;
+  color: rgb(20, 210, 240);
 }
 
 a:hover {
-  color: #262626;
-  border-bottom: dotted #49bddf 1px;
+  color: rgb(35, 35, 35);
+  border-bottom: 1px dotted rgb(20, 210, 240);
 }
 
 h1 {
