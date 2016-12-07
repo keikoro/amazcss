@@ -1,0 +1,290 @@
+*:focus {
+  outline: dotted 1px rgba(70, 60, 140, .4);
+}
+
+body {
+  font-family: Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.maincontainer {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+}
+
+.addparticles_btn_holder {
+  position: absolute;
+  top: .5em;
+  right: .5em;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+
+  border: .40vm solid rgba(70, 60, 140, .04);
+  border: .40vmin solid rgba(70, 60, 140, .04);
+  border-radius: .6em .2em .6em .2em;
+  padding: .4em;
+
+  -webkit-transition-property: border, color;
+  transition-property: border, color;
+  -webkit-transition-duration: 1.3s, 1s;
+  transition-duration: 1.3s, 1s;
+}
+
+.addparticles_btn, .addparticles_btn_active {
+  text-align: center;
+  font-size: 1em;
+  color: rgba(70, 60, 140, .04);
+  background: rgba(255, 255, 255, 1);
+  border: .25vm solid rgba(70, 60, 140, .04);
+  border: .25vmin solid rgba(70, 60, 140, .04);
+  border-radius: .2em;
+
+  margin: .4vm;
+  margin: .4vmin;
+  width: 1.85em;
+
+  -webkit-transition: border;
+  transition: border;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  box-shadow: 2px 2px rgba(70, 60, 140, .04);
+}
+
+.addparticles_btn_holder:hover {
+  color: rgba(70, 60, 140, .4);
+  border-color: rgba(70, 60, 140, .4);
+
+  -webkit-transition-property: border, color;
+  transition-property: border, color;
+  -webkit-transition-duration: .8s, 1s;
+  transition-duration: .8s, 1s;
+}
+
+.addparticles_btn_active {
+  box-shadow: inset 1px 1px rgba(70, 60, 140, .4),
+  inset 4px 4px rgba(70, 60, 140, .04),
+  2px 2px rgba(70, 60, 140, .04);
+}
+
+.addparticles_btn:hover {
+  color: rgba(70, 60, 140, .4);
+  border-color: rgba(70, 60, 140, .4);
+
+  -webkit-transition: border;
+  transition: border;
+  -webkit-transition-duration: .5s;
+  transition-duration: .5s;
+}
+
+.particle {
+  left: 10vmin;
+  height: 2vm;
+  height: 2vmin;
+  width: 2vm;
+  width: 2vmin;
+
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  background-color: purple;
+
+  -webkit-transition: opacity 5s;
+  transition: opacity 5s;
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+
+  -webkit-animation-name: fadeIn, rainbow, spin;
+  animation-name: fadeIn, rainbow, spin;
+  -webkit-animation-duration: 2s, 15s, 10s;
+  animation-duration: 2s, 15s, 10s;
+  -webkit-animation-iteration-count: 1, infinite, infinite;
+  animation-iteration-count: 1, infinite, infinite;
+  -webkit-animation-direction: normal;
+  animation-direction: normal;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+.carrier {
+  position: absolute;
+  width: 100%;
+  /* debug */
+  /*border: red solid 1px;*/
+
+  -webkit-animation-name: moveParticle;
+  animation-name: moveParticle;
+  -webkit-animation-duration: 10s;
+  animation-duration: 10s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: normal;
+  animation-direction: normal;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+.fadeOut {
+  -webkit-transition: all 5s ease-out;
+  transition: all 5s ease-out;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  }
+  75% {
+    opacity: 0.1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+  }
+  to {
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  }
+  75% {
+    opacity: 0.1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+  }
+  to {
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  }
+}
+
+@-webkit-keyframes moveParticle {
+  to {
+    transform: translate(110%, 0);
+  }
+}
+
+@keyframes moveParticle {
+  to {
+    transform: translate(110%, 0);
+  }
+}
+
+@-webkit-keyframes rainbow {
+  from, to {
+    background-color: purple;
+  }
+  16.6% {
+    background-color: red;
+  }
+  33.2% {
+    background-color: orange;
+  }
+  49.8% {
+    background-color: yellow;
+  }
+  66.4% {
+    background-color: green;
+  }
+  83% {
+    background-color: blue;
+  }
+}
+
+@keyframes rainbow {
+  from, to {
+    background-color: purple;
+  }
+  16.6% {
+    background-color: red;
+  }
+  33.2% {
+    background-color: orange;
+  }
+  49.8% {
+    background-color: yellow;
+  }
+  66.4% {
+    background-color: green;
+  }
+  83% {
+    background-color: blue;
+  }
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  75% {
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  75% {
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
